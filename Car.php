@@ -4,7 +4,7 @@ class Car
     private $make_model;
     private $price;
     private $miles;
-    public $image_path;
+    private $image_path;
 
     function __construct($car_model, $car_price, $car_miles, $car_pic)
     {
@@ -43,6 +43,11 @@ class Car
     {
       $this->miles = (integer) $new_miles;
     }
+
+    function getImage()
+    {
+      return $this->image_path;
+    }
 }
 
 $porsche = new Car("2014 Porsche 911", 114991, 7864, "images/porsche.jpg");
@@ -77,9 +82,10 @@ foreach ($cars as $car) {
                 $new_car_price = $car->getPrice();
                 $new_car_model = $car->getMakeModel();
                 $new_car_miles = $car->getMiles();
+                $new_car_image = $car->getImage();
                 echo "<li> $new_car_model </li>";
                 echo "<ul>";
-                  echo "<li><img src='$car->image_path'></li>";
+                  echo "<li><img src='$new_car_image'></li>";
                   echo "<li> $$new_car_price </li>";
                   echo "<li> Miles: $new_car_miles </li>";
                 echo "</ul>";
