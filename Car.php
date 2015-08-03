@@ -4,12 +4,14 @@ class Car
     private $make_model;
     private $price;
     private $miles;
+    public $image_path;
 
-    function __construct($car_model, $car_price, $car_miles)
+    function __construct($car_model, $car_price, $car_miles, $car_pic)
     {
       $this->make_model = $car_model;
       $this->price = $car_price;
       $this->miles = $car_miles;
+      $this->image_path = $car_pic;
     }
 
     function getMakeModel()
@@ -43,10 +45,10 @@ class Car
     }
 }
 
-$porsche = new Car("2014 Porsche 911", 114991, 7864);
-$ford = new Car("2011 Ford F450", 55995, 14241);
-$lexus = new Car("2013 Lexus RX 350", 44700, 20000);
-$mercedes = new Car("Mercedes Benz CLS550", 39900, 37979);
+$porsche = new Car("2014 Porsche 911", 114991, 7864, "images/porsche.jpg");
+$ford = new Car("2011 Ford F450", 55995, 14241, "images/ford.jpg");
+$lexus = new Car("2013 Lexus RX 350", 44700, 20000, "images/lexus.jpg");
+$mercedes = new Car("Mercedes Benz CLS550", 39900, 37979, "images/benz.jpg");
 
 $cars = array($porsche, $ford, $lexus, $mercedes);
 
@@ -77,6 +79,7 @@ foreach ($cars as $car) {
                 $new_car_miles = $car->getMiles();
                 echo "<li> $new_car_model </li>";
                 echo "<ul>";
+                  echo "<li><img src='$car->image_path'></li>";
                   echo "<li> $$new_car_price </li>";
                   echo "<li> Miles: $new_car_miles </li>";
                 echo "</ul>";
