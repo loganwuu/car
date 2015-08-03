@@ -68,7 +68,10 @@ foreach ($cars as $car) {
     <h1>Your Car Dealership</h1>
     <ul>
         <?php
-            foreach ($cars_matching_search as $car) {
+          if (empty($cars_matching_search)) {
+            echo "No matching result!";
+          } else {
+              foreach ($cars_matching_search as $car) {
                 $new_car_price = $car->getPrice();
                 $new_car_model = $car->getMakeModel();
                 $new_car_miles = $car->getMiles();
@@ -77,7 +80,9 @@ foreach ($cars as $car) {
                   echo "<li> $$new_car_price </li>";
                   echo "<li> Miles: $new_car_miles </li>";
                 echo "</ul>";
-            }
+               }
+          }
+
         ?>
     </ul>
 </body>
